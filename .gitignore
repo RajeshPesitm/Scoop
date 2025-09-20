@@ -1,0 +1,121 @@
+# === Java ===
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# Compiled Java files
+*.class
+
+# Maven / Gradle
+target/
+build/
+*.iml
+.gradle/
+out/
+
+# Java temporary files
+hs_err_pid*
+replay_pid*
+
+# === C/C++ ===
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+*.out
+*.a
+*.lib
+
+# Build directories
+/build/
+/bin/
+/Debug/
+/Release/
+
+# Ignore PowerShell scripts
+*.ps1
+*.psm1
+*.psd1
+
+
+# === IDEs and Editors ===
+
+# IntelliJ
+.idea/
+
+# Eclipse
+.project
+.classpath
+.cproject
+.settings/
+
+# VS Code
+.vscode/
+
+# NetBeans
+/nbproject/private/
+/build/
+/dist/
+
+# Sublime
+*.sublime-workspace
+*.sublime-project
+
+# CLion
+cmake-build-*/
+
+# === OS Specific ===
+.DS_Store
+Thumbs.db
+
+# === Logs and Misc ===
+*.log
+*.tmp
+*.swp
+*.bak
+*.old
+*.orig
+
+# === Git ===
+*.orig
+*.rej
+*.patch
+*.diff
+
+
+# Ignore VS Code settings that are machine-specific
+.vscode/*.code-workspace
+.vscode/*.db
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+
+# Allow versioned workspace configuration (if needed)
+!.vscode/extensions.json
+!.vscode/recommended-extensions.json
+
+# Chocolatey temp/cache/log files (if accidentally present)
+*.nupkg
+*.nuspec
+*.tmp
+*.bak
+choco.log
+logs/
+
+
+# Scoop local install folder (default location, usually outside the repo though)
+# If somehow Scoop directory is inside your repo, ignore:
+scoop/
+
+# Scoop cache folder (stores downloaded installers)
+# Default is %USERPROFILE%\scoop\cache (again usually outside the repo)
+scoop/cache/
+
+# Scoop apps folder (installed programs)
+scoop/apps/
+
+# Scoop shims folder (shortcuts to executables)
+scoop/shims/

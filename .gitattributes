@@ -1,0 +1,17 @@
+# This file is used to handle below warning specific to window compatibility
+# PS C:\Users\CSE\Downloads\LearnJava> git add .
+# warning: in the working copy of 'Seven.c', LF will be replaced by CRLF the next time Git touches it
+
+
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Explicitly declare text files to be normalized
+*.c     text
+*.h     text
+*.cpp   text
+*.java  text
+
+# Binary files
+*.jar   binary
+*.exe   binary
