@@ -56,6 +56,8 @@ void count_fruits() {
             apple_count++;
         else if (strcmp(word, "mango") == 0)
             mango_count++;
+        else if (strcmp(word, "grape") == 0)
+            grapes_count++;
     }
 
     fclose(fp);
@@ -67,7 +69,7 @@ void count_fruits() {
 int main() {
     pid_t pid = fork();
 
-    if (pid < 0) {
+    if (pid < 0) { //fails for both parent and
         perror("Fork failed");
         return 1; //program stops immidiatley
     }
