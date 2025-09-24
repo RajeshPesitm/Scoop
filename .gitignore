@@ -119,3 +119,6 @@ scoop/apps/
 
 # Scoop shims folder (shortcuts to executables)
 scoop/shims/
+
+# Compiled files
+three

@@ -67,7 +67,7 @@ void count_fruits() {
 }
 
 int main() {
-    pid_t pid = fork();
+    pid_t pid = fork();  //Runs another copy of this program
 
     if (pid < 0) { //fails for both parent and
         perror("Fork failed");
