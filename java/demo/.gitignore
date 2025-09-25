@@ -1,0 +1,20 @@
+# Maven build output
+target/
+
+# IDE files (optional, add if you use these IDEs)
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# Mac OS
+.DS_Store
+
+# Logs
+*.log
+
+# Backup/temp files
+*~
+*.swp
