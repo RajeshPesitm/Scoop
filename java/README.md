@@ -68,7 +68,7 @@ sudo update-alternatives --config javac
 ```
 
 ## Install Maven
-Sure! Here’s the full install and uninstall process in one copy-paste block for your terminal:
+Ubuntu:
 
 ```bash
 # Update package index
@@ -85,6 +85,16 @@ sudo apt remove maven -y
 
 # Remove unused dependencies
 sudo apt autoremove -y
+```
+
+windows:
+
+```bash
+# Check scoop installed
+# in your project folder
+scoop install maven
+# restart terminal and check maven installed
+mvn -version
 ```
 
 

@@ -123,5 +123,10 @@ After project creation:
 ```bash
 mvn clean compile
 mvn exec:java -Dexec.mainClass="com.example.App"
+
+
+# in windows
+mvn "exec:java" "-Dexec.mainClass=com.example.App"
+
 ```
 
