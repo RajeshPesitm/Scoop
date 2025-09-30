@@ -6,6 +6,7 @@ import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.*;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,7 +23,7 @@ public class App extends JFrame {
     private final JTextField basePriceInput = new JTextField("100000", 10);
     private final JButton startButton = new JButton("Start Simulation");
 
-    private final XYSeries series = new XYSeries("Gold Price");
+    private final XYSeries series = new XYSeries("Gold Graph");
     private final Timer writerTimer;
 
     public App() {
@@ -31,18 +32,32 @@ public class App extends JFrame {
         setSize(800, 600);
         setLayout(new GridLayout(1, 2));
 
+        // Define custom bold font
+        Font boldFont = new Font("SansSerif", Font.BOLD, 16);
+
         // Writer Panel
         JPanel writerPanel = new JPanel();
-        writerPanel.setBorder(BorderFactory.createTitledBorder("📤 Writer - Price Simulator"));
+        TitledBorder writerBorder = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.GRAY), "📤 Writer - Price Simulator");
+        writerBorder.setTitleFont(boldFont);
+        writerPanel.setBorder(writerBorder);
         writerPanel.setLayout(new GridLayout(5, 1));
-        writerPanel.add(new JLabel("Enter Base Price:"));
+
+        JLabel basePriceLabel = new JLabel("Enter Base Price:");
+        basePriceLabel.setFont(boldFont);
+        basePriceInput.setFont(boldFont);
+        startButton.setFont(boldFont);
+        writerLabel.setFont(boldFont);
+
+        writerPanel.add(basePriceLabel);
         writerPanel.add(basePriceInput);
         writerPanel.add(startButton);
         writerPanel.add(writerLabel);
 
         // Reader Panel (Chart)
         JPanel readerPanel = new JPanel(new BorderLayout());
-        readerPanel.setBorder(BorderFactory.createTitledBorder("📥 Reader - Price Graph"));
+        TitledBorder readerBorder = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.GRAY), "📥 Reader - Price Graph");
+        readerBorder.setTitleFont(boldFont);
+        readerPanel.setBorder(readerBorder);
 
         XYSeriesCollection dataset = new XYSeriesCollection(series);
         JFreeChart chart = ChartFactory.createXYLineChart(
@@ -56,9 +71,15 @@ public class App extends JFrame {
         XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer(true, false);
         plot.setRenderer(renderer);
 
-        // This sets the Y axis scale limits
+        // Set Y axis limits
         plot.getRangeAxis().setRange(80000, 110000);
 
+        // Set chart fonts
+        chart.getTitle().setFont(new Font("SansSerif", Font.BOLD, 18));
+        plot.getDomainAxis().setLabelFont(boldFont);
+        plot.getRangeAxis().setLabelFont(boldFont);
+        plot.getDomainAxis().setTickLabelFont(boldFont);
+        plot.getRangeAxis().setTickLabelFont(boldFont);
 
         ChartPanel chartPanel = new ChartPanel(chart);
         readerPanel.add(chartPanel, BorderLayout.CENTER);
@@ -110,3 +131,4 @@ public class App extends JFrame {
         SwingUtilities.invokeLater(App::new);
     }
 }
+
