@@ -18,3 +18,41 @@ target/
 # Backup/temp files
 *~
 *.swp
+
+
+# Maven
+/target/
+dependency-reduced-pom.xml
+
+# IntelliJ IDEA
+/.idea/
+/*.iml
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# VSCode
+.vscode/
+
+# Installer output
+# installer/output/  # Uncomment if you want to ignore the entire output directory
+/installer/*.deb
+installer/*.jar
+
+# Logs & temp files
+*.log
+*.tmp
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*~
+*.bak
+
+# jpackage build folders (if used)
+/build/
