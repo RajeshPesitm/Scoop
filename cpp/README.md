@@ -1,12 +1,45 @@
+# git Index Table B Section
+
+| Experiment No. | Experiment Name                           | Date                  |
+| -------------- | ----------------------------------------- | --------------------- |
+| 1              | Initialize repo, add file, commit         | 18-09-2025 (Thursday) |
+| 2              | Create branch, switch to master, merge    | 25-09-2025 (Thursday) |
+| 3              | Stash changes, switch branch, apply stash | 09-10-2025 (Thursday) |
+| 4              | Clone remote repository                   | 16-10-2025 (Thursday) |
+| 5              | Fetch and rebase latest changes           | 23-10-2025 (Thursday) |
+| 6              | Merge with custom message                 | 30-10-2025 (Thursday) |
+| 7              | Create lightweight tag                    | 06-11-2025 (Thursday) |
+| 8              | Cherry-pick range of commits              | 13-11-2025 (Thursday) |
+| 9              | View commit details                       | 20-11-2025 (Thursday) |
+| 10             | List commits by author and date           | 27-11-2025 (Thursday) |
+| 11             | Show last five commits                    | 04-12-2025 (Thursday) |
+| 12             | Undo a commit                             | 11-12-2025 (Thursday) |
+
+# git Index Table C Section
+
+| Experiment No. | Experiment Name                           | Date                 |
+| -------------- | ----------------------------------------- | -------------------- |
+| 1              | Initialize repo, add file, commit         | 16-09-2025 (Tuesday) |
+| 2              | Create branch, switch to master, merge    | 23-09-2025 (Tuesday) |
+| 3              | Stash changes, switch branch, apply stash | 30-09-2025 (Tuesday) |
+| 4              | Clone remote repository                   | 14-10-2025 (Tuesday) |
+| 5              | Fetch and rebase latest changes           | 28-10-2025 (Tuesday) |
+| 6              | Merge with custom message                 | 04-11-2025 (Tuesday) |
+| 7              | Create lightweight tag                    | 25-11-2025 (Tuesday) |
+| 8              | Cherry-pick range of commits              | 02-12-2025 (Tuesday) |
+| 9              | View commit details                       | 09-12-2025 (Tuesday) |
+| 10             | List commits by author and date           | 16-12-2025 (Tuesday) |
+| 11             | Show last five commits                    | 23-12-2025 (Tuesday) |
+| 12             | Undo a commit                             | 30-12-2025 (Tuesday) |
+
+
+
 # 🔗[Git Lab Syllabus: Page 42](https://vtu.ac.in/pdf/2022_3to8/2csessyll.pdf)
 # Important Github Repositories
 ```bash
 git clone https://github.com/RajeshPesitm/Scoop.git
 ```
 
-# Experiment 10
-🔗[Experiment 10 Simulation](https://hansalshah007.github.io/osvirtuallab/diskscheduling_index.html)
-🔗[Experiment 9 Simulation](https://erpjietuniverse.in/virtual_lab/Operating_system/labs/exp9/index.html)
 
 
 
@@ -458,6 +491,62 @@ updated remote branch.
 ---
 
 
+# Experiment 6: Collaboration and Remote Repositories
+## Write the command to merge "feature-branch" into "master" while providing a custom commit message for the merge.
+---
+
+# ✅ **Steps to Merge `feature-branch` into `master` with a Custom Commit Message**
+
+### **1. Make sure your local repository is up to date**
+
+```sh
+git fetch
+```
+
+### **2. Switch to the `master` branch**
+
+Before merging, you must be on the branch *receiving* the changes.
+
+```sh
+git checkout master
+```
+
+### **3. Merge `feature-branch` into `master` with a custom message**
+
+Use the `--no-ff` or `--edit` option if you want to ensure a merge commit is created.
+To supply the message directly:
+
+```sh
+git merge feature-branch -m "Your custom merge commit message"
+```
+
+---
+
+# ⭐ **Final Command**
+
+```
+git checkout master
+git merge feature-branch -m "Custom merge commit message"
+```
+
+---
+
+# 📝 **Explanation**
+
+* **`git checkout master`**
+  Switches to the master branch because merging happens *into* the currently checked-out branch.
+
+* **`git merge feature-branch`**
+  Takes the changes from `feature-branch` and applies them to `master`.
+
+* **`-m "message"`**
+  Adds a custom commit message for the merge commit instead of using the auto-generated one.
+
+---
+
+
+
+
 
 # Experiment 7: Git Tags and Releases
 Write the command to create a lightweight Git tag named "v1.0" for a commit in your local
@@ -645,9 +734,222 @@ git checkout main
 git branch -D new-branch
 ```
 
+# Experiment 09: Analysing and Changing Git History 
+## Given a commit ID, how would you use Git to view the details of that specific commit, including the author, date, and commit message?
+---
+
+## ✅ **How to View Details of a Specific Commit in Git**
+
+### **Step 1: Identify the commit ID (hash)**
+
+You will need the commit hash, which looks like:
+
+```
+a1b2c3d4e5f67890abcdef1234567890abcdef12
+```
+
+You can get it using:
+
+```
+git log
+```
+
+---
+
+## **Step 2: Use `git show` with the commit ID**
+
+### **Command:**
+
+```bash
+git show <commit-id>
+```
+
+### **Example:**
+
+```bash
+git show a1b2c3d
+```
+
+### **What this shows:**
+
+* **Author** (name + email)
+* **Date**
+* **Commit message**
+* **Changes introduced** (diff output)
+
+Git will display something like:
+
+```
+commit a1b2c3d4e5f67890abcdef1234567890abcdef12
+Author: John Doe <john@example.com>
+Date:   Mon Feb 5 10:20:33 2024 -0500
+
+    Fix bug in login functionality
+
+diff --git a/app.js b/app.js
+...
+```
+
+---
+
+## **Alternative Commands**
+
+### **1. `git log` with the commit ID**
+
+```bash
+git log -1 <commit-id>
+```
+
+Shows only the metadata (author, date, message) but *not* the diff.
+
+---
+
+### **2. Pretty-print the output**
+
+```bash
+git show --pretty=fuller <commit-id>
+```
+
+Shows extended metadata.
+
+---
+
+### **3. Show only commit message / metadata**
+
+If you don’t want to see the diff:
+
+```bash
+git show --no-patch <commit-id>
+```
+
+---
+
+## ✔️ Summary
+
+| Command                         | What it shows              |
+| ------------------------------- | -------------------------- |
+| `git show <id>`                 | Full commit details + diff |
+| `git log -1 <id>`               | Author, date, message only |
+| `git show --no-patch <id>`      | Metadata only, no diff     |
+| `git show --pretty=fuller <id>` | Expanded commit metadata   |
+
+---
+
+# Experiment 10: Analysing and Changing Git History 
+## Write the command to list all commits made by the author "JohnDoe" between "2023-01-01" and "2023-12-31."
+
+---
+
+## ✅ **Git Command**
+
+```bash
+git log --author="JohnDoe" --since="2023-01-01" --until="2023-12-31"
+```
+
+---
+
+## ✅ **Explanation**
+
+### **1. `git log`**
+
+Shows the commit history.
+
+### **2. `--author="JohnDoe"`**
+
+Filters commits to only those made by the author named **JohnDoe**.
+
+### **3. `--since="2023-01-01"`**
+
+Includes commits **from** January 1st, 2023 onward.
+
+### **4. `--until="2023-12-31"`**
+
+Includes commits **up to** December 31st, 2023.
+
+Together, these options restrict the output to:
+✔ Commits by **JohnDoe**
+✔ Within the date range **2023-01-01 → 2023-12-31**
+
+---
+
+## ⭐ Optional: Compact view
+
+If you want a cleaner one-line output:
+
+```bash
+git log --author="JohnDoe" --since="2023-01-01" --until="2023-12-31" --oneline
+```
+
+---
+
+
+# Experiment 11: Analysing and Changing Git History 
+## Write the command to display the last five commits in the repository's history. 
+
+---
+
+## ✅ **Steps to View the Last Five Commits in Git**
+
+### **Step 1: Open your terminal**
+
+Use any terminal or command prompt that has Git installed.
+
+### **Step 2: Navigate to your Git repository**
+
+Use the `cd` command to move into the directory of your project:
+
+```bash
+cd path/to/your/repository
+```
+
+### **Step 3: Run the Git log command with the `-n` option**
+
+To view only the last 5 commits, use:
+
+```bash
+git log -n 5
+```
+
+---
+
+## ✅ **Explanation**
+
+### **What the command does**
+
+* `git log`: Shows the commit history.
+* `-n 5`: Limits the output to **the most recent 5 commits**.
+
+So the command:
+
+```bash
+git log -n 5
+```
+
+will display the **latest five commits**, each showing:
+
+* Commit hash
+* Author
+* Date
+* Commit message
+
+---
+
+## ⭐ Optional: More compact format
+
+If you prefer a summary view:
+
+```bash
+git log -n 5 --oneline
+```
+
+This prints only the commit hash and message on one line.
+
+---
+
+
 
 # Experiment 12: Analysing and Changing Git History
-Write the command to undo the changes introduced by the commit with the ID "abc123".
+## Write the command to undo the changes introduced by the commit with the ID "abc123".
 
 ---
 
